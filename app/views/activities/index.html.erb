@@ -1,0 +1,20 @@
+<ul>
+  <% @activities.each do |activity| %>
+    <li>
+      <%= activity.created_at %> - <%= activity.user.full_name %>:
+      <% if activity.is_a?(Comment) %>
+        Comment: <%= activity.content %>
+      <% elsif activity.is_a?(Like) %>
+        <% if activity.post_id.present? %>
+          Like: <%= activity.user.full_name %> liked post ##{activity.post_id}
+        <% elsif activity.comment_id.present? %>
+          Like: <%= activity.user.full_name %> liked comment ##{activity.comment_id}
+        <% else %>
+          Like: <%= activity.user.full_name %> liked an unknown object
+        <% end %>
+      <% else %>
+        Unknown Activity Type
+      <% end %>
+    </li>
+  <% end %>
+</ul>

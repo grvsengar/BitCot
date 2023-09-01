@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>New Post Notification</h1>
+  <p>A new post has been created on the platform.</p>
+  <p>Details:</p>
+  <ul>
+    <li>Post Content: <%= @post.content %></li>
+    <li>Posted By: <%= @post.user.full_name %></li>
+  </ul>
+</body>
+</html>
